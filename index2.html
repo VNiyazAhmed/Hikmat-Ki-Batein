@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hikmath Ki Bathein - Islamic Wisdom Apps</title>
+    <meta name="description" content="Discover Islamic wisdom through our collection of apps inspired by Hikmath Ki Bathein. Download now for daily Islamic guidance and spiritual growth.">
+    <meta name="theme-color" content="#032362">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #032362; /* Blue as main */
+            --secondary-color: #FFD700; /* Gold as minor */
+            --accent-color: #032362; /* Blue accent */
+            --text-color: #032362;
+            --light-bg: #FFFFFF;
+            --dark-bg: #F8F9FA;
+            --dark-text: #032362;
+            --card-bg: #FFFFFF;
+            --card-shadow: 0 4px 15px rgba(3, 35, 98, 0.1);
+            --header-bg: rgba(255, 255, 255, 0.98);
+            --footer-bg: #032362;
+            --gradient-start: rgba(3, 35, 98, 0.95); /* Blue */
+            --gradient-end: rgba(255, 215, 0, 0.85); /* Gold */
+            --success-color: #10B981;
+            --error-color: #EF4444;
+            --hover-color: #FFD700; /* Gold on hover */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: var(--header-bg);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)),
+                        url('https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23ffffff" fill-opacity="0.1" d="M0 0h100v100H0z"/><path fill="%23ffffff" fill-opacity="0.05" d="M50 0L100 50L50 100L0 50z"/></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.2s;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.4s;
+        }
+
+        .download-btn {
+            background: #fff !important;
+            color: var(--primary-color) !important;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(3, 35, 98, 0.2);
+            border: 2px solid var(--primary-color);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(3, 35, 98, 0.3);
+            background: var(--secondary-color) !important;
+            color: var(--primary-color) !important;
+            border-color: var(--secondary-color);
+        }
+
+        .download-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Apps Section */
+        .apps-section {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .app-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--light-bg);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+        }
+
+        .app-card:hover .app-icon {
+            transform: rotateY(360deg);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .app-card h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .app-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Wisdom Section */
+        .wisdom-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .wisdom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .wisdom-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .wisdom-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: 'Amiri', serif;
+            font-size: 120px;
+            color: var(--accent-color);
+            opacity: 0.1;
+            transition: all 0.3s ease;
+        }
+
+        .wisdom-card:hover::before {
+            transform: scale(1.2);
+        }
+
+        .wisdom-card p {
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .wisdom-card .source {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Author Section */
+        .author-section {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .author-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .author-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .author-container:hover .author-image img {
+            transform: scale(1.1);
+        }
+
+        .author-content h2 {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .author-content p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .form-group input:invalid,
+        .form-group textarea:invalid {
+            border-color: var(--error-color);
+        }
+
+        .form-group input:valid,
+        .form-group textarea:valid {
+            border-color: var(--success-color);
+        }
+
+        .submit-btn {
+            background: #fff !important;
+            color: var(--primary-color) !important;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-color) !important;
+            color: #fff !important;
+            border-color: var(--primary-color);
+        }
+
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366; /* WhatsApp green */
+            color: #ffffff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--footer-bg);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-color: var(--dark-text);
+                --light-bg: #F8F9FA;
+                --dark-bg: #F8F9FA;
+                --card-bg: #FFFFFF;
+                --header-bg: rgba(255, 255, 255, 0.95);
+            }
+
+            body {
+                background: var(--light-bg);
+            }
+
+            .header {
+                background: var(--header-bg);
+            }
+
+            .header.scrolled {
+                background: var(--header-bg);
+            }
+
+            .app-card,
+            .wisdom-card,
+            .testimonial-card,
+            .contact-form {
+                background: var(--card-bg);
+            }
+
+            .form-group input,
+            .form-group textarea {
+                background: #FFFFFF;
+                border-color: #E0E0E0;
+                color: var(--text-color);
+            }
+
+            .form-group label {
+                color: var(--text-color);
+            }
+        }
+
+        /* Add loading animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--secondary-color);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Add scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            transform-origin: 0%;
+            z-index: 1001;
+        }
+
+        /* Add back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: #fff !important;
+            color: var(--primary-color) !important;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(3, 35, 98, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: var(--primary-color) !important;
+            color: #fff !important;
+        }
+
+        /* Add card hover effects */
+        .app-card, .wisdom-card, .testimonial-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .app-card:hover, .wisdom-card:hover, .testimonial-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+        }
+
+        /* Add image lazy loading placeholder */
+        .lazy-image {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lazy-image.loaded {
+            opacity: 1;
+        }
+
+        /* Add section reveal animations */
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Add form validation styles */
+        .form-group input:invalid,
+        .form-group textarea:invalid {
+            border-color: var(--error-color);
+        }
+
+        .form-group input:valid,
+        .form-group textarea:valid {
+            border-color: var(--success-color);
+        }
+
+        /* Add mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--header-bg);
+                padding: 1rem;
+                flex-direction: column;
+                align-items: center;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+                box-shadow: 0 4px 15px rgba(3, 35, 98, 0.1);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+        }
+
+        /* Add dark mode toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: #fff !important;
+            color: var(--primary-color) !important;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(3, 35, 98, 0.3);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color) !important;
+            color: #fff !important;
+        }
+
+        /* Add accessibility improvements */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Add focus styles */
+        :focus {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* Add reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        .download-btn:hover,
+        .submit-btn:hover,
+        .back-to-top:hover,
+        .theme-toggle:hover,
+        .mobile-menu-btn:hover {
+            background: var(--primary-color) !important;
+            color: #fff !important;
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-mosque"></i>
+                Hikmath Ki Bathein
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#apps">Apps</a></li>
+                <li><a href="#wisdom">Wisdom</a></li>
+                <li><a href="#author">Author</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Islamic Wisdom</h1>
+            <p>Experience the profound teachings of Hikmath Ki Bathein through our collection of interactive apps. Download now and embark on a spiritual journey.</p>
+            <div class="download-buttons">
+                <a href="#" class="download-btn">
+                    <i class="fab fa-google-play"></i>
+                    Volume-05
+                </a>
+                <a href="#" class="download-btn">
+                    <i class="fab fa-google-play"></i>
+                    Volume-04
+                </a>
+                <a href="#" class="download-btn">
+                    <i class="fab fa-google-play"></i>
+                   Volume-03
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section id="apps" class="apps-section">
+        <div class="section-title">
+            <h2>App Collection</h2>
+            <p>Explore our collection of Islamic apps designed to enhance your spiritual journey</p>
+        </div>
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-icon">
+                    <img src="logo5.png" alt="App Logo" style="width:60px; height:60px;">
+                </div>
+                <h3>Volume-05</h3>
+                <p>Get daily doses of Islamic wisdom and guidance from Hikmath Ki Bathein</p>
+                <a href="#" class="download-btn">
+                    <i class="fab fa-google-play"></i>
+                    Download
+                </a>
+            </div>
+            <div class="app-card">
+                <div class="app-icon">
+                    <img src="Vol4.jpg" alt="App Logo" style="width:60px; height:60px;">
+                </div>
+                <h3>Volume-04</h3>
+                <p>Stay connected with accurate prayer times and Islamic calendar</p>
+                <a href="#" class="download-btn">
+                    <i class="fab fa-google-play"></i>
+                    Download
+                </a>
+            </div>
+            <div class="app-card">
+                <div class="app-icon">
+                    <img src="Vol3.jpg" alt="App Logo" style="width:60px; height:60px;">
+                </div>
+                <h3>Volume-03</h3>
+                <p>Access a collection of inspiring Islamic quotes and teachings</p>
+                <a href="#" class="download-btn">
+                    <i class="fab fa-google-play"></i>
+                    Download
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wisdom Section -->
+    <section id="wisdom" class="wisdom-section">
+        <div class="section-title">
+            <h2>Islamic Wisdom</h2>
+            <p>Selected teachings from Hikmath Ki Bathein</p>
+        </div>
+        <div class="wisdom-grid">
+            <div class="wisdom-card">
+                <p>"The best of people are those who are most beneficial to people."</p>
+                <p class="source">- Prophet Muhammad (ﷺ)</p>
+            </div>
+            <div class="wisdom-card">
+                <p>"Whoever believes in Allah and the Last Day, let him speak good or remain silent."</p>
+                <p class="source">- Prophet Muhammad (ﷺ)</p>
+            </div>
+            <div class="wisdom-card">
+                <p>"The strong person is not the one who can wrestle someone else down. The strong person is the one who can control himself when angry."</p>
+                <p class="source">- Prophet Muhammad (ﷺ)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section id="author" class="author-section">
+        <div class="section-title">
+            <h2>About the Author</h2>
+            <p>Learn about the inspiration behind Hikmath Ki Bathein</p>
+        </div>
+        <div class="author-container">
+            <div class="author-image">
+                <img src="authorphoto.png" alt="Author">
+            </div>
+            <div class="author-content">
+                <h2>V NIYAZ AHMED</h2>
+                <p>Dedicated to spreading Islamic wisdom and guidance through modern technology. The author's vision is to make Islamic teachings accessible to everyone through our collection of apps.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="section-title">
+            <h2>User Testimonials</h2>
+            <p>What our users say about our books</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "These apps have become an essential part of my daily spiritual routine. The wisdom shared is truly inspiring."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="User">
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah Ahmed</h4>
+                        <p>Daily Wisdom App User</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "The Prayer Times app is incredibly accurate and helpful. It's made it much easier to stay on track with my prayers."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="User">
+                    </div>
+                    <div class="author-info">
+                        <h4>Mohammed Ali</h4>
+                        <p>Prayer Times App User</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "The Islamic Quotes app is a great source of inspiration. I love sharing these quotes with my family and friends."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="User">
+                    </div>
+                    <div class="author-info">
+                        <h4>Fatima Khan</h4>
+                        <p>Islamic Quotes App User</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#apps">Apps</a></li>
+                    <li><a href="#wisdom">Wisdom</a></li>
+                    <li><a href="#author">Author</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hikmath Ki Bathein. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading overlay
+        window.addEventListener('load', function() {
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            loadingOverlay.style.opacity = '0';
+            setTimeout(() => {
+                loadingOverlay.style.display = 'none';
+            }, 500);
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.transform = `scaleX(${scrollPercent / 100})`;
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Section reveal animations
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            section.classList.add('section-reveal');
+            observer.observe(section);
+        });
+
+        // Lazy loading images
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+
+        // Dark mode toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function toggleTheme(e) {
+            if (e.type === 'change') {
+                document.body.classList.toggle('dark-mode', e.matches);
+            } else {
+                document.body.classList.toggle('dark-mode');
+            }
+        }
+
+        prefersDarkScheme.addListener(toggleTheme);
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Form validation
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (form.checkValidity()) {
+                // Add your form submission logic here
+                alert('Thank you for your message! We will get back to you soon.');
+                form.reset();
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
