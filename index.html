@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hikmath Ki Bathein - Islamic Wisdom Apps</title>
-    <meta name="description" content="Discover Islamic wisdom through our collection of apps inspired by Hikmath Ki Bathein. Download now for daily Islamic guidance and spiritual growth.">
+    <title>Hikmat Ki Batein - Islamic Wisdom Apps</title>
+    <meta name="description" content="Discover Islamic wisdom through our collection of apps inspired by Hikmat Ki Batein. Download now for daily Islamic guidance and spiritual growth.">
     <meta name="theme-color" content="#032362">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -415,6 +415,32 @@
             margin: 0 auto;
         }
 
+        .playstore-profile-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 2rem auto;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+        }
+
+        .playstore-profile-btn:hover {
+            background: #fff;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(3, 35, 98, 0.3);
+        }
+
+        .playstore-profile-btn i {
+            font-size: 1.5rem;
+        }
+
         .testimonial-card {
             background: var(--card-bg);
             border-radius: 20px;
@@ -423,6 +449,9 @@
             transition: all 0.3s ease;
             box-shadow: var(--card-shadow);
             border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .testimonial-card:hover {
@@ -435,12 +464,31 @@
             color: #666;
             margin-bottom: 1.5rem;
             line-height: 1.8;
+            flex-grow: 1;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 1rem;
+            margin-top: auto;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+            line-height: 1.4;
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
         }
 
         .author-avatar {
@@ -454,16 +502,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .author-info h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.2rem;
-        }
-
-        .author-info p {
-            color: #666;
-            font-size: 0.9rem;
         }
 
         /* Contact Section */
@@ -544,7 +582,7 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background: #25D366; /* WhatsApp green */
+            background: #032362; /* Deep Blue */
             color: #ffffff;
             width: 60px;
             height: 60px;
@@ -553,16 +591,77 @@
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 4px 15px rgba(3, 35, 98, 0.3);
             transition: all 0.3s ease;
             z-index: 1000;
         }
 
         .whatsapp-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 6px 20px rgba(3, 35, 98, 0.4);
+            background: #032362; /* Deep Blue */
+            color: #fff;
+        }
+
+        /* Physical Book Section Styles */
+        .physical-book-section {
+            padding: 4rem 2rem;
+            background: var(--light-bg);
+            text-align: center;
+        }
+
+        .physical-book-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .physical-book-content h2 {
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-text {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .secondary-text {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: var(--primary-color);
             color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+        }
+
+        .email-btn:hover {
+            background: #fff;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(3, 35, 98, 0.3);
+        }
+
+        .email-btn i {
+            font-size: 1.2rem;
         }
 
         /* Footer */
@@ -601,22 +700,6 @@
         }
 
         .footer-section ul li a:hover {
-            color: var(--accent-color);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
             color: var(--accent-color);
         }
 
@@ -921,6 +1004,46 @@
             color: #fff !important;
             border-color: var(--primary-color);
         }
+
+        * Logo styling */
+.header .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.header .logo img {
+    height: 40px;
+    width: 40px;  /* Makes it square */
+    border-radius: 6px;  /* Slightly rounded corners */
+    margin-right: 10px;
+    object-fit: cover;  /* Ensures image fills the square properly */
+    border: 2px solid #f0f0f0;  /* Optional: adds a subtle border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Optional: adds a subtle shadow */
+}
+
+/* For a partially rounded logo, you can use this instead: */
+/* .header .logo img {
+    height: 40px;
+    width: auto;
+    border-radius: 8px;  
+    margin-right: 10px;
+    object-fit: cover;
+} */
+
+/* Responsive adjustments
+@media (max-width: 768px) {
+    .header .logo img {
+        height: 32px;
+    }
+    
+    .header .logo {
+        font-size: 1.2rem;
+    }
+} */
     </style>
 </head>
 <body>
@@ -946,8 +1069,8 @@
     <header class="header">
         <nav class="nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-mosque"></i>
-                Hikmath Ki Bathein
+                <img src="logo5.png">
+                Hikmat Ki Batein
             </a>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
@@ -966,17 +1089,17 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Discover Islamic Wisdom</h1>
-            <p>Experience the profound teachings of Hikmath Ki Bathein through our collection of interactive apps. Download now and embark on a spiritual journey.</p>
+            <p>Experience the profound teachings of Hikmat Ki Batein through our collection of interactive apps. Download now and embark on a spiritual journey.</p>
             <div class="download-buttons">
-                <a href="#" class="download-btn">
+                <a href="https://play.google.com/store/apps/details?id=com.project.hkb02&pcampaignid=web_share" class="download-btn">
                     <i class="fab fa-google-play"></i>
                     Volume-05
                 </a>
-                <a href="#" class="download-btn">
+                <a href="https://play.google.com/store/apps/details?id=com.hikmatkibateinefour.hikmathkibatein_02&pcampaignid=web_share" class="download-btn">
                     <i class="fab fa-google-play"></i>
                     Volume-04
                 </a>
-                <a href="#" class="download-btn">
+                <a href="https://play.google.com/store/apps/details?id=com.HIKMATKIBATEIN.hikmatkibaten&pcampaignid=web_share" class="download-btn">
                     <i class="fab fa-google-play"></i>
                    Volume-03
                 </a>
@@ -996,8 +1119,8 @@
                     <img src="logo5.png" alt="App Logo" style="width:60px; height:60px;">
                 </div>
                 <h3>Volume-05</h3>
-                <p>Get daily doses of Islamic wisdom and guidance from Hikmath Ki Bathein</p>
-                <a href="#" class="download-btn">
+                <p>Get daily doses of Islamic wisdom and guidance from Hikmat Ki Batein</p>
+                <a href="https://play.google.com/store/apps/details?id=com.project.hkb02&pcampaignid=web_share" class="download-btn">
                     <i class="fab fa-google-play"></i>
                     Download
                 </a>
@@ -1008,7 +1131,7 @@
                 </div>
                 <h3>Volume-04</h3>
                 <p>Stay connected with accurate prayer times and Islamic calendar</p>
-                <a href="#" class="download-btn">
+                <a href="https://play.google.com/store/apps/details?id=com.hikmatkibateinefour.hikmathkibatein_02&pcampaignid=web_share" class="download-btn">
                     <i class="fab fa-google-play"></i>
                     Download
                 </a>
@@ -1019,7 +1142,7 @@
                 </div>
                 <h3>Volume-03</h3>
                 <p>Access a collection of inspiring Islamic quotes and teachings</p>
-                <a href="#" class="download-btn">
+                <a href="https://play.google.com/store/apps/details?id=com.HIKMATKIBATEIN.hikmatkibaten&pcampaignid=web_share" class="download-btn">
                     <i class="fab fa-google-play"></i>
                     Download
                 </a>
@@ -1031,19 +1154,19 @@
     <section id="wisdom" class="wisdom-section">
         <div class="section-title">
             <h2>Islamic Wisdom</h2>
-            <p>Selected teachings from Hikmath Ki Bathein</p>
+            <p>Selected teachings from Hikmat Ki Batein</p>
         </div>
         <div class="wisdom-grid">
             <div class="wisdom-card">
-                <p>"The best of people are those who are most beneficial to people."</p>
+                <p>"<b>Compassion and Mercy:</b> Treat all beings with kindness, regardless of status or faith."</p>
                 <p class="source">- Prophet Muhammad (ﷺ)</p>
             </div>
             <div class="wisdom-card">
-                <p>"Whoever believes in Allah and the Last Day, let him speak good or remain silent."</p>
+                <p>"<b>Justice and Honesty:</b> Uphold truth and fairness in all dealings, even against oneself."</p>
                 <p class="source">- Prophet Muhammad (ﷺ)</p>
             </div>
             <div class="wisdom-card">
-                <p>"The strong person is not the one who can wrestle someone else down. The strong person is the one who can control himself when angry."</p>
+                <p>"<b>Faith and Worship:</b> Devote oneself to God sincerely, fulfilling duties like prayer, charity, and self-discipline with humility and gratitude."</p>
                 <p class="source">- Prophet Muhammad (ﷺ)</p>
             </div>
         </div>
@@ -1053,7 +1176,7 @@
     <section id="author" class="author-section">
         <div class="section-title">
             <h2>About the Author</h2>
-            <p>Learn about the inspiration behind Hikmath Ki Bathein</p>
+            <p>Learn about the inspiration behind Hikmat Ki Batein</p>
         </div>
         <div class="author-container">
             <div class="author-image">
@@ -1075,53 +1198,116 @@
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="testimonial-content">
-                    "These apps have become an essential part of my daily spiritual routine. The wisdom shared is truly inspiring."
-                </div>
+                    "Niyaz Ahmed Sahib's book 'Hikmat Ki Batein' is a remarkable contribution filled with wisdom and insight. His dedication, sincerity, and eloquence shine throughout the work. May Allah make this book a source of lasting benefit for all readers."    
+                    </div>
                 <div class="testimonial-author">
                     <div class="author-avatar">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="User">
+                        <img src="author_akbar.png" alt="User">
                     </div>
                     <div class="author-info">
-                        <h4>Sarah Ahmed</h4>
-                        <p>Daily Wisdom App User</p>
+                        <h4>Dr. Akbar Kausar</h4>
+                        <p>Hikmat Ki Batein App User</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-content">
-                    "The Prayer Times app is incredibly accurate and helpful. It's made it much easier to stay on track with my prayers."
+                "The book 'Hikmat Ki Batein' compiled by Niyaz Ahmad Sahib is a valuable treasure of wisdom and sincerity. His tireless efforts and noble character reflect in every page. May Allah make it beneficial for the public and grant him great rewards in this life and the Hereafter."
                 </div>
                 <div class="testimonial-author">
                     <div class="author-avatar">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="User">
+                        <img src="author_Nasir.png" alt="User">
                     </div>
                     <div class="author-info">
-                        <h4>Mohammed Ali</h4>
-                        <p>Prayer Times App User</p>
+                        <h4>Nasiruddin Ahmad Sahib</h4>
+                        <p>Hikmat Ki Batein App User</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-content">
-                    "The Islamic Quotes app is a great source of inspiration. I love sharing these quotes with my family and friends."
+                "Reading 'Hikmat Ki Batein' deeply moved and inspired me. The book beautifully blends emotion with intellectual depth, offering timeless wisdom and reflections on life. I sincerely pray for the author's continued success and good health, and look forward to more such meaningful works in the future."   
                 </div>
                 <div class="testimonial-author">
                     <div class="author-avatar">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="User">
+                        <img src="author_Muddassir.png" alt="User">
                     </div>
                     <div class="author-info">
-                        <h4>Fatima Khan</h4>
-                        <p>Islamic Quotes App User</p>
+                        <h4>Dr. Mudasir Arafath</h4>
+                        <h4> (M.B.B.S)</h4>
+                        <p>Hikmat Ki Batein App User</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                "The book 'Hikmat Ki Baatain' is a valuable collection of golden words and timeless wisdom, thoughtfully compiled from diverse scholarly and historical sources. I found it deeply beneficial and enriching. May Allah accept this work and bless the author and his family for their sincere scholarly and social contributions"    
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="author_hakeem2.png" alt="User">
+                    </div>
+                    <div class="author-info">
+                        <h4>Hakim Raziuddin Ahmed (B.U.M.S., M.D.)</h4>
+                        <p>Hikmat Ki Batein App User</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                "Hikmat Ki Batein', compiled by Mr. Niyaz Ahmed, is a refined and spiritually uplifting work. It beautifully conveys the essence of wisdom as a divine gift. The book's thoughtful presentation inspires gratitude, refinement, and growth. May Allah bless this noble effort, accept it, and continue to guide such meaningful contributions"   
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="author_hakeem1.png" alt="User">
+                    </div>
+                    <div class="author-info">
+                        <h4>Hakim Rafuddin Ahmed</h4>
+                        <p>Hikmat Ki Batein App User</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                "Like the lasting fragrance of perfume, Mr. Niyaz Ahmed's noble personality and book 'Hikmat Ki Batein' leave a deep, refreshing impact. The book, with over 350 pages, thoughtfully blends Urdu and Roman scripts, covering Islamic fundamentals, Hadith, and moral teachings. Its poetic conclusion offers spiritual inspiration."    
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="author_yasir.png" alt="User">
+                    </div>
+                    <div class="author-info">
+                        <h4>Dr. Yasir Arafath </h4>
+                        <h4>(B.U.M.S., M.D.)</h4>
+                        <p>Hikmat Ki Batein App User</p>
                     </div>
                 </div>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://play.google.com/store/apps/dev?id=YOUR_DEVELOPER_ID" class="playstore-profile-btn" target="_blank">
+                <i class="fab fa-google-play"></i>
+                Visit Our Play Store Profile
+            </a>
+        </div>
     </section>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+    <!-- Replace WhatsApp Button with Email Button -->
+    <a href="mailto:ahmedniyaz967@gmail.com?subject=Requesting%20a%20Physical%20copy%20of%20the%20book" class="whatsapp-btn" aria-label="Send email">
+        <i class="fas fa-envelope"></i>
     </a>
+
+    <!-- Add Physical Book Section before Footer -->
+    <section class="physical-book-section">
+        <div class="physical-book-content">
+            <h2>Get Your Physical Copy</h2>
+            <p class="highlight-text">If you want a physical copy of the book, contact us!</p>
+            <p class="secondary-text">The physical copy is free of cost and only shipping cost may include</p>
+            <a href="mailto:ahmedniyaz967@gmail.com?subject=Requesting%20a%20Physical%20copy%20of%20the%20book" class="email-btn">
+                <i class="fas fa-envelope"></i>
+                Request Physical Copy
+            </a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1137,25 +1323,16 @@
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
                 <h3>Legal</h3>
                 <ul>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="https://doc-hosting.flycricket.io/hikmat-ki-batein-4rd-edition-terms-of-use/a4f01a18-ad75-41bb-839e-e76e80396f1c/terms">Terms & Conditions</a></li>
+                    <li><a href="https://doc-hosting.flycricket.io/hikmat-ki-batein-privacy-policy/e60a3a8e-b21b-43b2-9c39-28ab04896810/privacy">Privacy Policy</a></li>
+                    
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Hikmath Ki Bathein. All rights reserved.</p>
+            <p>&copy; 2025 Hikmat Ki Batein. All rights reserved.</p>
         </div>
     </footer>
 
